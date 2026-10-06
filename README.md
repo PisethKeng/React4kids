@@ -1,4 +1,4 @@
-# React Path
+# ReactJS_4kids
 
 A progressive React 18 learning workspace for people who know basic JavaScript. Eighteen lessons connect foundations to intermediate application design through visual labs, guided practice, and a Study Planner capstone.
 
