@@ -197,13 +197,13 @@ export const drawerData = [
   {
     drawertitle: 'Example of JSX Syntax',
     path: '',
-    video: ''
+    video: 'https://www.youtube.com/watch?v=jr5MJYB2gzM'
   },
   {
     drawertitle: 'Props',
     drawerlist: 'Props are used to pass data from a parent component to a child component.',
-    path: '',
-    video: ''
+    path: 'https://legacy.reactjs.org/docs/components-and-props.html',
+    video: 'https://www.youtube.com/watch?v=uvEAvxWvwOs&t=256s'
   },
   {
     drawertitle: 'Example of Props',
@@ -252,20 +252,20 @@ export const drawerData = [
   {
     drawertitle: 'React Routing',
     drawerlist: 'React Router is a standard library for routing in React.',
-    path: '',
-    video: ''
+    path: 'https://reactrouter.com/',
+    video: 'https://www.youtube.com/watch?v=h7MTWLv3xvw'
   },
   {
     drawertitle: 'How React Routing Works',
     drawerlist: '',
     path: pagePath.reactRouting,
     video: 'https://www.youtube.com/watch?v=Ul3y1LXxzdU'
-  },
-  {
-    drawertitle: 'Example of React Routing',
-    path: '',
-    video: ''
   }
+  // {
+  //   drawertitle: 'Example of React Routing',
+  //   path: 'https://reactrouter.com/',
+  //   video: 'https://www.youtube.com/watch?v=c02YoWR9gSY&t=157s'
+  // }
 ]
 
 // List Items sample Data
@@ -298,11 +298,10 @@ const Home = () => {
     <>
      {/* Nav Bar */}
      
-     <ResponsiveAppBar />
 
      {/* Main Page */}
       <div style={{
-        backgroundColor: '#727D73',
+      
         height: 'auto',
         margin: '0 auto',
         width: '90%',
@@ -354,7 +353,6 @@ const Home = () => {
           marginBottom: '2rem',
           marginLeft: '2rem',
           marginRight: '2rem',
-          backgroundColor: '#727D73',
           borderRadius: '10px',
           padding: '1rem'
         }}>

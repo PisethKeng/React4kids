@@ -4,10 +4,10 @@ import { Facebook, Twitter, LinkedIn, GitHub } from '@mui/icons-material';
 
 const Footer = () => {
   const socialLinks = [
-    { icon: <Facebook />, url: 'https://facebook.com/your-profile' },
-    { icon: <Twitter />, url: 'https://twitter.com/your-profile' },
-    { icon: <LinkedIn />, url: 'https://linkedin.com/in/your-profile' },
-    { icon: <GitHub />, url: 'https://github.com/your-username' },
+    { icon: <Facebook />, url: 'https://www.facebook.com' },
+    { icon: <Twitter />, url: 'https://x.com/PisethKeng' },
+    { icon: <LinkedIn />, url: 'https://www.linkedin.com/feed/' },
+    { icon: <GitHub />, url: 'https://github.com/PisethKeng' },
   ];
 
   return (
