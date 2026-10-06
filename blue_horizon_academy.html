@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blue Horizon Academy — Sun-Drenched Skills for the Creative Mind</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts: Space Grotesk, Outfit, & Montserrat -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,600;0,800;0,900;1,400;1,700&family=Outfit:wght@300;400;600;700;800;900&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        cobalt: '#0047AB',
+                        turquoise: '#00CED1',
+                        sunyellow: '#FFD000',
+                        coralpink: '#FF6B6B',
+                        midnight: '#0D1B2A',
+                        poolblue: '#48CAE4',
+                        sandwhite: '#FFF9F2',
+                        duskpurple: '#3A0CA3'
+                    },
+                    fontFamily: {
+                        sans: ['Outfit', 'Montserrat', 'sans-serif'],
+                        display: ['Space Grotesk', 'sans-serif']
+                    },
+                    boxShadow: {
+                        'nagai': '6px 6px 0px 0px #0D1B2A',
+                        'nagai-sm': '3px 3px 0px 0px #0D1B2A',
+                        'nagai-lg': '10px 10px 0px 0px #0D1B2A',
+                        'nagai-coral': '6px 6px 0px 0px #FF6B6B',
+                        'nagai-yellow': '6px 6px 0px 0px #FFD000',
+                        'nagai-cyan': '6px 6px 0px 0px #00CED1'
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: #FFF9F2;
+            color: #0D1B2A;
+            overflow-x: hidden;
+        }
+
+        /* Neubrutalist Sharp Borders & Offset Shadow Components */
+        .nagai-card {
+            border: 3px solid #0D1B2A;
+            background-color: #FFFFFF;
+            transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .nagai-btn {
+            border: 3px solid #0D1B2A;
+            transition: all 0.15s ease-in-out;
+            box-shadow: 5px 5px 0px 0px #0D1B2A;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .nagai-btn:hover {
+            transform: translate(-3px, -3px);
+            box-shadow: 8px 8px 0px 0px #0D1B2A;
+        }
+
+        .nagai-btn:active {
+            transform: translate(2px, 2px);
+            box-shadow: 2px 2px 0px 0px #0D1B2A;
+        }
+
+        /* City Pop Sky Gradients */
+        .city-pop-sky {
+            background: linear-gradient(180deg, #0047AB 0%, #00CED1 55%, #FFD000 85%, #FF6B6B 100%);
+        }
+
+        .dusk-pop-sky {
+            background: linear-gradient(180deg, #3A0CA3 0%, #0047AB 50%, #FF6B6B 85%, #FFD000 100%);
+        }
+
+        /* Vinyl Spin Animation */
+        @keyframes spinVinyl {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .spin-vinyl {
+            animation: spinVinyl 8s linear infinite;
+        }
+
+        .spin-paused {
+            animation-play-state: paused;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #FFF9F2;
+            border-left: 2px solid #0D1B2A;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #00CED1;
+            border: 2px solid #0D1B2A;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #FF6B6B;
+        }
+    </style>
+</head>
+<body class="selection:bg-sunyellow selection:text-midnight">
+
+    <!-- HEADER / NAVIGATION -->
+    <header class="sticky top-0 z-40 bg-[#FFF9F2]/95 backdrop-blur-md border-b-4 border-midnight py-3.5 px-4 sm:px-8">
+        <div class="max-w-7xl mx-auto flex items-center justify-between">
+            <!-- Brand Logo -->
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-11 h-11 bg-sunyellow border-3 border-midnight flex items-center justify-center font-display font-black text-midnight text-2xl shadow-nagai-sm group-hover:rotate-6 transition-transform">
+                    <i class="fa-solid fa-sun text-coralpink"></i>
+                </div>
+                <div>
+                    <span class="font-display font-black text-xl sm:text-2xl tracking-wider text-midnight block leading-none">BLUE HORIZON</span>
+                    <span class="text-[10px] font-black tracking-[0.25em] text-cobalt block uppercase mt-0.5">Academy of Creative Arts</span>
+                </div>
+            </a>
+
+            <!-- Desktop Nav Links -->
+            <nav class="hidden md:flex items-center gap-7 font-bold text-xs sm:text-sm tracking-widest uppercase">
+                <a href="#courses" class="hover:text-turquoise transition-colors hover:underline underline-offset-4 decoration-2">Courses</a>
+                <a href="#pathways" class="hover:text-turquoise transition-colors hover:underline underline-offset-4 decoration-2">Pathways</a>
+                <a href="#assessment" class="hover:text-turquoise transition-colors hover:underline underline-offset-4 decoration-2">Skill Quiz</a>
+                <a href="#community" class="hover:text-turquoise transition-colors hover:underline underline-offset-4 decoration-2">Campus</a>
+                <a href="#pricing" class="hover:text-turquoise transition-colors hover:underline underline-offset-4 decoration-2">Passes</a>
+            </nav>
+
+            <!-- CTA & Mobile Controls -->
+            <div class="flex items-center gap-3">
+                <button onclick="openQuizModal()" class="hidden sm:inline-flex nagai-btn bg-turquoise hover:bg-cyan-300 text-midnight px-4 py-2 text-xs">
+                    <i class="fa-solid fa-compass mr-1.5"></i> Find My Path
+                </button>
+                <a href="#courses" class="nagai-btn bg-coralpink text-white hover:bg-red-500 px-5 py-2 text-xs">
+                    Enroll Now
+                </a>
+                <button id="mobileMenuBtn" class="md:hidden border-2 border-midnight p-2 bg-white text-midnight">
+                    <i class="fa-solid fa-bars text-lg"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Nav Menu -->
+        <div id="mobileMenu" class="hidden md:hidden border-t-2 border-midnight mt-3 pt-3 pb-2 space-y-2 font-bold uppercase tracking-wider text-xs">
+            <a href="#courses" class="block px-3 py-1.5 hover:bg-turquoise/20">Courses Catalog</a>
+            <a href="#pathways" class="block px-3 py-1.5 hover:bg-turquoise/20">Learning Pathways</a>
+            <a href="#assessment" class="block px-3 py-1.5 hover:bg-turquoise/20" onclick="openQuizModal()">Skill Matcher Quiz</a>
+            <a href="#pricing" class="block px-3 py-1.5 hover:bg-turquoise/20">All-Access Pass</a>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="relative pt-8 pb-16 px-4 sm:px-8 border-b-4 border-midnight bg-gradient-to-b from-[#FFF9F2] via-turquoise/10 to-transparent">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            
+            <!-- Left Text Content -->
+            <div class="lg:col-span-5 space-y-6 z-10">
+                <div class="inline-flex items-center gap-2 bg-cobalt text-white border-2 border-midnight px-3 py-1 text-xs font-black tracking-widest uppercase shadow-nagai-sm">
+                    <i class="fa-solid fa-graduation-cap text-sunyellow"></i> Summer Semester Open
+                </div>
+
+                <h1 class="font-display text-4xl sm:text-6xl lg:text-6xl font-black text-midnight tracking-tight uppercase leading-[0.98]">
+                    Master Skills Under The <span class="text-cobalt underline decoration-sunyellow decoration-4">Endless</span> <span class="text-turquoise">Summer Sky.</span>
+                </h1>
+
+                <p class="text-slate-800 text-base sm:text-lg font-medium leading-relaxed">
+                    Welcome to Blue Horizon Academy — where Japanese City Pop visual tranquility meets cutting-edge creative education. Master Web Design, Synth Audio Production, Modern Code, and Graphic Art.
+                </p>
+
+                <!-- Search Bar Widget -->
+                <div class="nagai-card p-2 bg-white shadow-nagai flex items-center gap-2">
+                    <i class="fa-solid fa-magnifying-glass text-slate-400 pl-3"></i>
+                    <input type="text" id="heroSearchInput" onkeyup="handleHeroSearch(event)" placeholder="Search 'UI Design', 'City Pop Audio', 'JavaScript'..." class="w-full text-sm font-bold bg-transparent focus:outline-none text-midnight">
+                    <button onclick="executeHeroSearch()" class="nagai-btn bg-sunyellow hover:bg-yellow-300 text-midnight px-5 py-2.5 text-xs whitespace-nowrap">
+                        Search
+                    </button>
+                </div>
+
+                <!-- Stats Bar -->
+                <div class="grid grid-cols-3 gap-3 pt-2">
+                    <div class="p-3 border-2 border-midnight bg-white shadow-nagai-sm text-center">
+                        <span class="font-display font-black text-2xl text-cobalt block">24K+</span>
+                        <span class="text-[10px] font-bold text-slate-600 uppercase tracking-wider">Students</span>
+                    </div>
+                    <div class="p-3 border-2 border-midnight bg-white shadow-nagai-sm text-center">
+                        <span class="font-display font-black text-2xl text-turquoise block">120+</span>
+                        <span class="text-[10px] font-bold text-slate-600 uppercase tracking-wider">Courses</span>
+                    </div>
+                    <div class="p-3 border-2 border-midnight bg-white shadow-nagai-sm text-center">
+                        <span class="font-display font-black text-2xl text-coralpink block">98%</span>
+                        <span class="text-[10px] font-bold text-slate-600 uppercase tracking-wider">Satisfaction</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Vector Canvas Frame (Nagai Interactive Resort Campus Artwork) -->
+            <div class="lg:col-span-7 relative">
+                <div class="nagai-card p-3 bg-white shadow-nagai-lg">
+                    <div class="flex items-center justify-between bg-midnight text-white px-3 py-2 text-xs font-mono mb-3">
+                        <span class="flex items-center gap-2">
+                            <span class="w-2.5 h-2.5 rounded-full bg-turquoise animate-ping"></span>
+                            STUDY_LOUNGE_CANVAS // NAGAI_VIEW_01
+                        </span>
+                        <div class="flex gap-1.5">
+                            <button onclick="setSkyTheme('midday')" class="px-2 py-0.5 text-[10px] font-bold bg-sunyellow text-midnight border border-white">DAY</button>
+                            <button onclick="setSkyTheme('sunset')" class="px-2 py-0.5 text-[10px] font-bold bg-coralpink text-white border border-white">DUSK</button>
+                            <button onclick="setSkyTheme('twilight')" class="px-2 py-0.5 text-[10px] font-bold bg-cobalt text-white border border-white">NIGHT</button>
+                        </div>
+                    </div>
+
+                    <!-- Interactive Canvas -->
+                    <div class="relative w-full aspect-[16/10] overflow-hidden border-2 border-midnight bg-cobalt">
+                        <canvas id="campusCanvas" class="w-full h-full block cursor-pointer" title="Click on the pool or sky to interact!"></canvas>
+                        
+                        <div class="absolute top-4 right-4 bg-white/90 backdrop-blur border-2 border-midnight px-3 py-1 text-[11px] font-bold text-midnight shadow-nagai-sm">
+                            <i class="fa-solid fa-umbrella-beach text-coralpink mr-1"></i> Campus Poolside Studio
+                        </div>
+                    </div>
+
+                    <div class="flex justify-between items-center mt-3 pt-2 border-t-2 border-midnight text-xs font-bold">
+                        <span class="text-cobalt">ACADEMY LOCATION: SHINAGAWA COAST</span>
+                        <span class="text-slate-500"><i class="fa-solid fa-water text-turquoise"></i> Click canvas to ripple water</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- LOFI / CITY POP AUDIO PLAYER WIDGET -->
+    <section id="soundtrack" class="py-8 px-4 sm:px-8 bg-midnight text-white border-b-4 border-midnight relative">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+            
+            <div class="flex items-center gap-4">
+                <!-- Spinning Vinyl Graphic -->
+                <div class="relative w-16 h-16 shrink-0">
+                    <div id="vinylDisc" class="w-full h-full rounded-full bg-slate-900 border-2 border-white shadow-lg flex items-center justify-center spin-vinyl spin-paused">
+                        <div class="w-6 h-6 rounded-full bg-sunyellow border-2 border-midnight flex items-center justify-center">
+                            <div class="w-1.5 h-1.5 rounded-full bg-midnight"></div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <span class="text-[10px] font-black uppercase text-sunyellow tracking-widest bg-cobalt px-2 py-0.5 border border-white">
+                        <i class="fa-solid fa-headphones mr-1"></i> Study Radio
+                    </span>
+                    <h3 id="radioTrackTitle" class="font-display font-black text-lg text-white mt-1">Coastal Code Vibes (84.5 FM)</h3>
+                    <p id="radioArtist" class="text-xs text-turquoise font-mono">Tatsuro Study Beats & Audio Lab</p>
+                </div>
+            </div>
+
+            <!-- Synth Player Controls -->
+            <div class="flex items-center gap-4 w-full md:w-auto justify-between md:justify-end">
+                <div class="flex items-center gap-2">
+                    <button onclick="prevRadioTrack()" class="w-9 h-9 border-2 border-white bg-cobalt hover:bg-blue-700 text-white flex items-center justify-center font-bold text-xs shadow-[2px_2px_0px_#FFF]">
+                        <i class="fa-solid fa-backward-step"></i>
+                    </button>
+                    <button id="radioPlayBtn" onclick="toggleRadioAudio()" class="px-5 py-2 border-2 border-white bg-sunyellow hover:bg-yellow-300 text-midnight flex items-center gap-2 font-black text-xs uppercase shadow-[3px_3px_0px_#FFF]">
+                        <i id="radioPlayIcon" class="fa-solid fa-play"></i>
+                        <span id="radioPlayText">Play Chill Beats</span>
+                    </button>
+                    <button onclick="nextRadioTrack()" class="w-9 h-9 border-2 border-white bg-cobalt hover:bg-blue-700 text-white flex items-center justify-center font-bold text-xs shadow-[2px_2px_0px_#FFF]">
+                        <i class="fa-solid fa-forward-step"></i>
+                    </button>
+                </div>
+
+                <div class="hidden sm:flex items-center gap-2 text-xs font-mono">
+                    <i class="fa-solid fa-volume-high text-turquoise"></i>
+                    <input type="range" min="0" max="1" step="0.1" value="0.7" class="w-20 accent-turquoise cursor-pointer">
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- INTERACTIVE COURSE CATALOG -->
+    <section id="courses" class="py-16 px-4 sm:px-8 border-b-4 border-midnight bg-[#FFF9F2]">
+        <div class="max-w-7xl mx-auto space-y-10">
+            
+            <!-- Section Header -->
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b-4 border-midnight pb-6">
+                <div>
+                    <span class="text-xs font-black uppercase text-cobalt tracking-widest bg-turquoise/30 px-3 py-1 border border-midnight">
+                        Curriculum Catalog
+                    </span>
+                    <h2 class="font-display text-3xl sm:text-5xl font-black text-midnight uppercase tracking-tight mt-2">
+                        Explore Creative Courses
+                    </h2>
+                </div>
+                <p class="text-slate-700 text-sm sm:text-base max-w-md font-medium">
+                    Hands-on masterclasses taught by world-class designers, synth producers, and frontend architects.
+                </p>
+            </div>
+
+            <!-- Category Filter Tabs -->
+            <div class="flex flex-wrap gap-3" id="courseTabs">
+                <button onclick="filterCourses('all')" class="tab-btn nagai-btn bg-midnight text-white px-5 py-2.5 text-xs" data-cat="all">All Courses</button>
+                <button onclick="filterCourses('design')" class="tab-btn nagai-btn bg-white text-midnight hover:bg-turquoise px-5 py-2.5 text-xs" data-cat="design"><i class="fa-solid fa-palette mr-1.5 text-turquoise"></i> Design & Aesthetics</button>
+                <button onclick="filterCourses('audio')" class="tab-btn nagai-btn bg-white text-midnight hover:bg-sunyellow px-5 py-2.5 text-xs" data-cat="audio"><i class="fa-solid fa-compact-disc mr-1.5 text-coralpink"></i> City Pop Audio & Synth</button>
+                <button onclick="filterCourses('coding')" class="tab-btn nagai-btn bg-white text-midnight hover:bg-coralpink hover:text-white px-5 py-2.5 text-xs" data-cat="coding"><i class="fa-solid fa-code mr-1.5 text-cobalt"></i> Modern Frontend</button>
+                <button onclick="filterCourses('art')" class="tab-btn nagai-btn bg-white text-midnight hover:bg-cobalt hover:text-white px-5 py-2.5 text-xs" data-cat="art"><i class="fa-solid fa-vector-square mr-1.5 text-sunyellow"></i> Vector Illustration</button>
+            </div>
+
+            <!-- Courses Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="courseGrid">
+                
+                <!-- Course 1 -->
+                <div class="course-card design nagai-card shadow-nagai hover:-translate-y-2 flex flex-col justify-between" data-title="hiroshi nagai vector art UI design">
+                    <div>
+                        <!-- Vector Cover Art -->
+                        <div class="aspect-[16/9] border-b-3 border-midnight bg-gradient-to-b from-cobalt to-turquoise relative p-4 flex flex-col justify-between overflow-hidden">
+                            <div class="flex justify-between items-start">
+                                <span class="bg-sunyellow text-midnight border-2 border-midnight px-2.5 py-0.5 text-[11px] font-black uppercase">Design</span>
+                                <span class="bg-white text-midnight font-bold text-xs border border-midnight px-2 py-0.5"><i class="fa-solid fa-star text-sunyellow"></i> 4.9</span>
+                            </div>
+                            <div class="relative z-10 font-display font-black text-white text-xl uppercase drop-shadow-[2px_2px_0px_#0D1B2A]">
+                                CITY POP UI / UX SYSTEM
+                            </div>
+                            <div class="w-16 h-16 rounded-full bg-sunyellow border-2 border-midnight absolute -bottom-6 -right-2"></div>
+                        </div>
+
+                        <!-- Card Body -->
+                        <div class="p-6 space-y-3">
+                            <h3 class="font-display text-2xl font-black text-midnight uppercase leading-tight">Retro Neubrutalism & Vector Web UI</h3>
+                            <p class="text-slate-600 text-xs leading-relaxed font-medium">
+                                Master high-contrast layout grids, hard drop shadows, saturated palettes, and 80s Japanese resort UI principles using Tailwind CSS and Figma.
+                            </p>
+                            <div class="flex items-center justify-between text-xs font-bold pt-2 border-t border-slate-200">
+                                <span class="text-cobalt"><i class="fa-regular fa-user mr-1"></i> Hiroshi Sato</span>
+                                <span class="text-slate-500"><i class="fa-regular fa-clock mr-1"></i> 6 Weeks</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="p-6 pt-0 flex items-center justify-between gap-3">
+                        <span class="font-display font-black text-2xl text-midnight">$149</span>
+                        <button onclick="openCourseDrawer('Retro Neubrutalism & Vector Web UI', '$149', 'Hiroshi Sato', 'Master high-contrast layout grids, hard drop shadows, saturated palettes, and 80s Japanese resort UI principles using Tailwind CSS and Figma.')" class="nagai-btn bg-turquoise hover:bg-cyan-300 text-midnight px-4 py-2 text-xs">
+                            Enroll Course
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Course 2 -->
+                <div class="course-card audio nagai-card shadow-nagai hover:-translate-y-2 flex flex-col justify-between" data-title="city pop synthesizer audio production">
+                    <div>
+                        <div class="aspect-[16/9] border-b-3 border-midnight bg-gradient-to-b from-duskpurple via-coralpink to-sunyellow relative p-4 flex flex-col justify-between overflow-hidden">
+                            <div class="flex justify-between items-start">
+                                <span class="bg-coralpink text-white border-2 border-midnight px-2.5 py-0.5 text-[11px] font-black uppercase">Audio</span>
+                                <span class="bg-white text-midnight font-bold text-xs border border-midnight px-2 py-0.5"><i class="fa-solid fa-star text-sunyellow"></i> 5.0</span>
+                            </div>
+                            <div class="relative z-10 font-display font-black text-white text-xl uppercase drop-shadow-[2px_2px_0px_#0D1B2A]">
+                                80s SYNTH & FUNK GROOVES
+                            </div>
+                        </div>
+
+                        <div class="p-6 space-y-3">
+                            <h3 class="font-display text-2xl font-black text-midnight uppercase leading-tight">Analog Synth & City Pop Audio Production</h3>
+                            <p class="text-slate-600 text-xs leading-relaxed font-medium">
+                                Synthesize warmth, funk basslines, smooth DX7 brass, and seaside reverb tracks using Web Audio API and modern DAW workflows.
+                            </p>
+                            <div class="flex items-center justify-between text-xs font-bold pt-2 border-t border-slate-200">
+                                <span class="text-cobalt"><i class="fa-regular fa-user mr-1"></i> Kenji Yamashita</span>
+                                <span class="text-slate-500"><i class="fa-regular fa-clock mr-1"></i> 8 Weeks</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="p-6 pt-0 flex items-center justify-between gap-3">
+                        <span class="font-display font-black text-2xl text-midnight">$189</span>
+                        <button onclick="openCourseDrawer('Analog Synth & City Pop Audio Production', '$189', 'Kenji Yamashita', 'Synthesize warmth, funk basslines, smooth DX7 brass, and seaside reverb tracks using Web Audio API and modern DAW workflows.')" class="nagai-btn bg-sunyellow hover:bg-yellow-300 text-midnight px-4 py-2 text-xs">
+                            Enroll Course
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Course 3 -->
+                <div class="course-card coding nagai-card shadow-nagai hover:-translate-y-2 flex flex-col justify-between" data-title="javascript html5 canvas creative coding">
+                    <div>
+                        <div class="aspect-[16/9] border-b-3 border-midnight bg-gradient-to-b from-cobalt via-turquoise to-white relative p-4 flex flex-col justify-between overflow-hidden">
+                            <div class="flex justify-between items-start">
+                                <span class="bg-cobalt text-white border-2 border-midnight px-2.5 py-0.5 text-[11px] font-black uppercase">Coding</span>
+                                <span class="bg-white text-midnight font-bold text-xs border border-midnight px-2 py-0.5"><i class="fa-solid fa-star text-sunyellow"></i> 4.8</span>
+                            </div>
+                            <div class="relative z-10 font-display font-black text-midnight text-xl uppercase drop-shadow-[2px_2px_0px_#FFF]">
+                                CREATIVE CANVAS & JS
+                            </div>
+                        </div>
+
+                        <div class="p-6 space-y-3">
+                            <h3 class="font-display text-2xl font-black text-midnight uppercase leading-tight">Interactive HTML5 Canvas & Web Graphics</h3>
+                            <p class="text-slate-600 text-xs leading-relaxed font-medium">
+                                Build real-time generative sky gradients, fluid pool ripple math, particle engines, and interactive web landscapes.
+                            </p>
+                            <div class="flex items-center justify-between text-xs font-bold pt-2 border-t border-slate-200">
+                                <span class="text-cobalt"><i class="fa-regular fa-user mr-1"></i> Yoko Tanaka</span>
+                                <span class="text-slate-500"><i class="fa-regular fa-clock mr-1"></i> 5 Weeks</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="p-6 pt-0 flex items-center justify-between gap-3">
+                        <span class="font-display font-black text-2xl text-midnight">$129</span>
+                        <button onclick="openCourseDrawer('Interactive HTML5 Canvas & Web Graphics', '$129', 'Yoko Tanaka', 'Build real-time generative sky gradients, fluid pool ripple math, particle engines, and interactive web landscapes.')" class="nagai-btn bg-coralpink text-white hover:bg-red-400 px-4 py-2 text-xs">
+                            Enroll Course
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Course 4 -->
+                <div class="course-card art nagai-card shadow-nagai hover:-translate-y-2 flex flex-col justify-between" data-title="vector art illustration seaside landscape">
+                    <div>
+                        <div class="aspect-[16/9] border-b-3 border-midnight bg-gradient-to-b from-turquoise to-sunyellow relative p-4 flex flex-col justify-between overflow-hidden">
+                            <div class="flex justify-between items-start">
+                                <span class="bg-midnight text-white border-2 border-midnight px-2.5 py-0.5 text-[11px] font-black uppercase">Art</span>
+                                <span class="bg-white text-midnight font-bold text-xs border border-midnight px-2 py-0.5"><i class="fa-solid fa-star text-sunyellow"></i> 4.9</span>
+                            </div>
+                            <div class="relative z-10 font-display font-black text-midnight text-xl uppercase drop-shadow-[2px_2px_0px_#FFF]">
+                                SEASIDE VECTOR ART
+                            </div>
+                        </div>
+
+                        <div class="p-6 space-y-3">
+                            <h3 class="font-display text-2xl font-black text-midnight uppercase leading-tight">Vector Landscapes & Palm Shadow Geometry</h3>
+                            <p class="text-slate-600 text-xs leading-relaxed font-medium">
+                                Learn the exact line art precision, cloudless horizon balancing, and sun-baked shadows of 70s-80s Japanese resort illustration.
+                            </p>
+                            <div class="flex items-center justify-between text-xs font-bold pt-2 border-t border-slate-200">
+                                <span class="text-cobalt"><i class="fa-regular fa-user mr-1"></i> Aoi Takahashi</span>
+                                <span class="text-slate-500"><i class="fa-regular fa-clock mr-1"></i> 4 Weeks</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="p-6 pt-0 flex items-center justify-between gap-3">
+                        <span class="font-display font-black text-2xl text-midnight">$119</span>
+                        <button onclick="openCourseDrawer('Vector Landscapes & Palm Shadow Geometry', '$119', 'Aoi Takahashi', 'Learn the exact line art precision, cloudless horizon balancing, and sun-baked shadows of 70s-80s Japanese resort illustration.')" class="nagai-btn bg-turquoise hover:bg-cyan-300 text-midnight px-4 py-2 text-xs">
+                            Enroll Course
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- INTERACTIVE SKILL ASSESSMENT QUIZ SECTION -->
+    <section id="assessment" class="py-16 px-4 sm:px-8 border-b-4 border-midnight bg-sunyellow">
+        <div class="max-w-4xl mx-auto nagai-card p-6 sm:p-10 shadow-nagai-lg bg-white relative">
+            <div class="absolute -top-5 right-6 bg-coralpink text-white border-2 border-midnight px-4 py-1 font-black text-xs uppercase shadow-nagai-sm">
+                Interactive Tool
+            </div>
+
+            <div class="space-y-6 text-center sm:text-left">
+                <div>
+                    <span class="text-xs font-black uppercase text-cobalt tracking-widest bg-turquoise/20 px-3 py-1 border border-midnight">
+                        Course Matcher
+                    </span>
+                    <h2 class="font-display text-3xl sm:text-4xl font-black text-midnight uppercase mt-2">
+                        Find Your Ideal Creative Pathway
+                    </h2>
+                    <p class="text-slate-700 text-sm mt-1">
+                        Unsure where to start? Take our 30-second skill quiz to get a customized curriculum recommendation.
+                    </p>
+                </div>
+
+                <!-- Quiz Form Container -->
+                <div id="quizContainer" class="p-6 border-3 border-midnight bg-[#FFF9F2] space-y-5">
+                    <div id="quizStep1" class="space-y-4">
+                        <h4 class="font-display font-black text-lg text-midnight">1. What is your primary creative goal?</h4>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                            <button onclick="selectQuizAnswer(1, 'design')" class="p-3 border-2 border-midnight bg-white hover:bg-turquoise text-left font-bold text-xs uppercase transition-colors">
+                                <i class="fa-solid fa-object-group text-cobalt mr-2"></i> Design retro web apps & UI
+                            </button>
+                            <button onclick="selectQuizAnswer(1, 'audio')" class="p-3 border-2 border-midnight bg-white hover:bg-sunyellow text-left font-bold text-xs uppercase transition-colors">
+                                <i class="fa-solid fa-sliders text-coralpink mr-2"></i> Produce synth music & audio
+                            </button>
+                            <button onclick="selectQuizAnswer(1, 'coding')" class="p-3 border-2 border-midnight bg-white hover:bg-coralpink hover:text-white text-left font-bold text-xs uppercase transition-colors">
+                                <i class="fa-solid fa-code text-turquoise mr-2"></i> Build interactive web canvas
+                            </button>
+                            <button onclick="selectQuizAnswer(1, 'art')" class="p-3 border-2 border-midnight bg-white hover:bg-cobalt hover:text-white text-left font-bold text-xs uppercase transition-colors">
+                                <i class="fa-solid fa-pen-nib text-sunyellow mr-2"></i> Vector artwork & illustration
+                            </button>
+                        </div>
+                    </div>
+
+                    <div id="quizResult" class="hidden space-y-4">
+                        <div class="p-4 border-2 border-midnight bg-turquoise text-midnight font-bold text-sm">
+                            <i class="fa-solid fa-circle-check text-coralpink mr-2 text-lg"></i>
+                            <span id="quizResultText">We recommend: **Retro Neubrutalism & Vector Web UI**!</span>
+                        </div>
+                        <button onclick="resetQuiz()" class="nagai-btn bg-cobalt text-white px-5 py-2 text-xs">
+                            Retake Quiz
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ENROLLMENT DRAWER / MODAL -->
+    <div id="courseModal" class="fixed inset-0 z-50 hidden bg-midnight/80 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="nagai-card max-w-md w-full bg-white p-6 shadow-nagai-lg relative space-y-5">
+            <button onclick="closeCourseDrawer()" class="absolute top-4 right-4 w-8 h-8 border-2 border-midnight bg-coralpink text-white font-bold flex items-center justify-center">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <div>
+                <span class="text-[10px] font-black uppercase bg-sunyellow border border-midnight px-2 py-0.5">Enrollment Drawer</span>
+                <h3 id="modalCourseTitle" class="font-display font-black text-2xl text-midnight uppercase mt-2">Course Title</h3>
+                <p id="modalCourseInstructor" class="text-xs font-bold text-cobalt mt-1">Instructor: Name</p>
+            </div>
+
+            <p id="modalCourseDesc" class="text-xs text-slate-700 leading-relaxed">
+                Course description text goes here...
+            </p>
+
+            <div class="flex items-center justify-between border-t-2 border-b-2 border-midnight py-3">
+                <span class="text-xs font-bold uppercase text-slate-500">Tuition Fee:</span>
+                <span id="modalCoursePrice" class="font-display font-black text-3xl text-midnight">$149</span>
+            </div>
+
+            <form onsubmit="confirmEnrollment(event)" class="space-y-3">
+                <input type="text" required placeholder="Your Full Name" class="w-full border-2 border-midnight p-2.5 text-xs font-bold bg-[#FFF9F2] focus:bg-white focus:outline-none">
+                <input type="email" required placeholder="Your Email Address" class="w-full border-2 border-midnight p-2.5 text-xs font-bold bg-[#FFF9F2] focus:bg-white focus:outline-none">
+                <button type="submit" class="w-full nagai-btn bg-turquoise hover:bg-cyan-300 text-midnight py-3 text-xs uppercase">
+                    Confirm & Start Learning <i class="fa-solid fa-arrow-right ml-2"></i>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="bg-midnight text-white py-12 px-4 sm:px-8 border-t-4 border-midnight">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 pb-8 border-b border-slate-800">
+            <div class="space-y-3">
+                <div class="flex items-center gap-2">
+                    <div class="w-8 h-8 bg-sunyellow text-midnight font-black flex items-center justify-center border border-white">B</div>
+                    <span class="font-display font-black text-lg">BLUE HORIZON</span>
+                </div>
+                <p class="text-xs text-slate-400 leading-relaxed">
+                    A Nagai-inspired creative learning academy. Sun-drenched education under eternal skies.
+                </p>
+            </div>
+
+            <div class="space-y-2 text-xs">
+                <h4 class="font-bold text-sunyellow uppercase tracking-widest text-sm mb-2">Curriculum</h4>
+                <p><a href="#courses" class="text-slate-300 hover:text-turquoise">Design & UI Systems</a></p>
+                <p><a href="#courses" class="text-slate-300 hover:text-turquoise">City Pop Audio Lab</a></p>
+                <p><a href="#courses" class="text-slate-300 hover:text-turquoise">Frontend Creative Code</a></p>
+            </div>
+
+            <div class="space-y-2 text-xs">
+                <h4 class="font-bold text-sunyellow uppercase tracking-widest text-sm mb-2">Aesthetic Specs</h4>
+                <p class="text-slate-400">Cobalt Blue #0047AB</p>
+                <p class="text-slate-400">Cyan Horizon #00CED1</p>
+                <p class="text-slate-400">Sun Yellow #FFD000</p>
+            </div>
+
+            <div class="space-y-3">
+                <h4 class="font-bold text-sunyellow uppercase tracking-widest text-sm">Academy Gazette</h4>
+                <div class="flex">
+                    <input type="email" placeholder="student@bluehorizon.edu" class="px-3 py-2 text-xs bg-slate-900 border border-white text-white focus:outline-none w-full">
+                    <button onclick="alert('Subscribed!')" class="bg-coralpink text-white font-bold px-3 text-xs border-y border-r border-white">
+                        <i class="fa-solid fa-paper-plane"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto pt-6 flex flex-col sm:flex-row justify-between text-xs text-slate-500 gap-2">
+            <p>© 2026 BLUE HORIZON ACADEMY. Hiroshi Nagai Style UI.</p>
+            <p>Designed for Creative Minds.</p>
+        </div>
+    </footer>
+
+    <!-- INTERACTIVE SCRIPTS -->
+    <script>
+        /* ==========================================================================
+           1. CANVAS ANIMATION & NAGAI SKYLIGHT RENDERER
+           ========================================================================== */
+        const canvas = document.getElementById('campusCanvas');
+        const ctx = canvas.getContext('2d');
+        let currentSky = 'midday';
+        let ripples = [];
+
+        function resizeCanvas() {
+            if (!canvas.parentElement) return;
+            canvas.width = canvas.parentElement.clientWidth;
+            canvas.height = canvas.parentElement.clientHeight;
+            drawCanvasScene();
+        }
+
+        window.addEventListener('resize', resizeCanvas);
+
+        canvas.addEventListener('click', (e) => {
+            const rect = canvas.getBoundingClientRect();
+            ripples.push({
+                x: e.clientX - rect.left,
+                y: e.clientY - rect.top,
+                radius: 2,
+                maxRadius: 40,
+                alpha: 1
+            });
+        });
+
+        const skyThemes = {
+            midday: { top: '#0047AB', mid: '#00CED1', bottom: '#FFD000', pool: '#48CAE4', sun: '#FFD000' },
+            sunset: { top: '#3A0CA3', mid: '#FF6B6B', bottom: '#FFD000', pool: '#2A9D8F', sun: '#FF3366' },
+            twilight: { top: '#0D1B2A', mid: '#0047AB', bottom: '#FF6B6B', pool: '#03045E', sun: '#FFFFFF' }
+        };
+
+        function setSkyTheme(theme) {
+            currentSky = theme;
+            drawCanvasScene();
+        }
+
+        function drawCanvasScene() {
+            const w = canvas.width;
+            const h = canvas.height;
+            const theme = skyThemes[currentSky];
+
+            ctx.clearRect(0, 0, w, h);
+
+            // Sky
+            const skyGrad = ctx.createLinearGradient(0, 0, 0, h * 0.55);
+            skyGrad.addColorStop(0, theme.top);
+            skyGrad.addColorStop(0.65, theme.mid);
+            skyGrad.addColorStop(1, theme.bottom);
+            ctx.fillStyle = skyGrad;
+            ctx.fillRect(0, 0, w, h * 0.55);
+
+            // Sun
+            ctx.beginPath();
+            ctx.arc(w * 0.78, h * 0.22, Math.min(w, h) * 0.12, 0, Math.PI * 2);
+            ctx.fillStyle = theme.sun;
+            ctx.fill();
+            ctx.lineWidth = 3;
+            ctx.strokeStyle = '#0D1B2A';
+            ctx.stroke();
+
+            // Horizon Ocean
+            ctx.fillStyle = currentSky === 'twilight' ? '#03045E' : '#0047AB';
+            ctx.fillRect(0, h * 0.55, w, h * 0.12);
+
+            // Pool & Concrete Deck
+            ctx.fillStyle = '#FFFFFF';
+            ctx.fillRect(0, h * 0.67, w, h * 0.33);
+
+            ctx.fillStyle = theme.pool;
+            ctx.beginPath();
+            ctx.moveTo(w * 0.18, h * 0.67);
+            ctx.lineTo(w, h * 0.67);
+            ctx.lineTo(w, h);
+            ctx.lineTo(w * 0.1, h);
+            ctx.closePath();
+            ctx.fill();
+
+            // Pool Edge Line
+            ctx.beginPath();
+            ctx.moveTo(w * 0.18, h * 0.67);
+            ctx.lineTo(w, h * 0.67);
+            ctx.strokeStyle = '#0D1B2A';
+            ctx.lineWidth = 4;
+            ctx.stroke();
+
+            // Ripples
+            ripples.forEach((r, idx) => {
+                ctx.beginPath();
+                ctx.ellipse(r.x, r.y, r.radius * 1.5, r.radius * 0.5, 0, 0, Math.PI * 2);
+                ctx.strokeStyle = `rgba(255, 255, 255, ${r.alpha})`;
+                ctx.lineWidth = 2;
+                ctx.stroke();
+
+                r.radius += 0.8;
+                r.alpha -= 0.025;
+                if (r.alpha <= 0) ripples.splice(idx, 1);
+            });
+        }
+
+        function animateCanvas() {
+            drawCanvasScene();
+            requestAnimationFrame(animateCanvas);
+        }
+
+        // Initialize Canvas
+        window.onload = function() {
+            resizeCanvas();
+            animateCanvas();
+        };
+
+        /* ==========================================================================
+           2. SYNTH LOFI AUDIO PLAYER LOGIC
+           ========================================================================== */
+        let audioCtx = null;
+        let isRadioPlaying = false;
+        let synthInterval = null;
+
+        function toggleRadioAudio() {
+            if (!audioCtx) {
+                const AudioContext = window.AudioContext || window.webkitAudioContext;
+                audioCtx = new AudioContext();
+            }
+
+            if (audioCtx.state === 'suspended') audioCtx.resume();
+
+            isRadioPlaying = !isRadioPlaying;
+
+            const vinyl = document.getElementById('vinylDisc');
+            const playIcon = document.getElementById('radioPlayIcon');
+            const playText = document.getElementById('radioPlayText');
+
+            if (isRadioPlaying) {
+                vinyl.classList.remove('spin-paused');
+                playIcon.className = 'fa-solid fa-pause';
+                playText.innerText = 'Pause Beats';
+                playSynthChord();
+                synthInterval = setInterval(playSynthChord, 2200);
+            } else {
+                vinyl.classList.add('spin-paused');
+                playIcon.className = 'fa-solid fa-play';
+                playText.innerText = 'Play Chill Beats';
+                clearInterval(synthInterval);
+            }
+        }
+
+        function playSynthChord() {
+            if (!audioCtx || !isRadioPlaying) return;
+            const now = audioCtx.currentTime;
+            const freqs = [261.63, 329.63, 392.00, 493.88]; // Cmaj7
+
+            freqs.forEach(freq => {
+                const osc = audioCtx.createOscillator();
+                const gain = audioCtx.createGain();
+                osc.type = 'triangle';
+                osc.frequency.setValueAtTime(freq, now);
+                gain.gain.setValueAtTime(0.01, now);
+                gain.gain.linearRampToValueAtTime(0.06, now + 0.1);
+                gain.gain.exponentialRampToValueAtTime(0.001, now + 2.0);
+                osc.connect(gain);
+                gain.connect(audioCtx.destination);
+                osc.start(now);
+                osc.stop(now + 2.1);
+            });
+        }
+
+        /* ==========================================================================
+           3. COURSE FILTERING & SEARCH LOGIC
+           ========================================================================== */
+        function filterCourses(category) {
+            const cards = document.querySelectorAll('.course-card');
+            const buttons = document.querySelectorAll('.tab-btn');
+
+            buttons.forEach(btn => {
+                if (btn.getAttribute('data-cat') === category) {
+                    btn.classList.replace('bg-white', 'bg-midnight');
+                    btn.classList.replace('text-midnight', 'text-white');
+                } else {
+                    btn.classList.replace('bg-midnight', 'bg-white');
+                    btn.classList.replace('text-white', 'text-midnight');
+                }
+            });
+
+            cards.forEach(card => {
+                if (category === 'all' || card.classList.contains(category)) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        function handleHeroSearch(e) {
+            if (e.key === 'Enter') executeHeroSearch();
+        }
+
+        function executeHeroSearch() {
+            const query = document.getElementById('heroSearchInput').value.toLowerCase();
+            const cards = document.querySelectorAll('.course-card');
+
+            cards.forEach(card => {
+                const title = card.getAttribute('data-title').toLowerCase();
+                if (title.includes(query)) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            document.getElementById('courses').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        /* ==========================================================================
+           4. SKILL QUIZ & ENROLLMENT MODAL LOGIC
+           ========================================================================== */
+        function selectQuizAnswer(step, path) {
+            document.getElementById('quizStep1').classList.add('hidden');
+            const res = document.getElementById('quizResult');
+            const txt = document.getElementById('quizResultText');
+            res.classList.remove('hidden');
+
+            if (path === 'design') txt.innerText = "Recommended Path: Retro Neubrutalism & Vector Web UI ($149)";
+            else if (path === 'audio') txt.innerText = "Recommended Path: Analog Synth & City Pop Audio ($189)";
+            else if (path === 'coding') txt.innerText = "Recommended Path: Interactive HTML5 Canvas & Web Graphics ($129)";
+            else txt.innerText = "Recommended Path: Vector Landscapes & Palm Shadow Geometry ($119)";
+        }
+
+        function resetQuiz() {
+            document.getElementById('quizStep1').classList.remove('hidden');
+            document.getElementById('quizResult').classList.add('hidden');
+        }
+
+        function openCourseDrawer(title, price, instructor, desc) {
+            document.getElementById('modalCourseTitle').innerText = title;
+            document.getElementById('modalCoursePrice').innerText = price;
+            document.getElementById('modalCourseInstructor').innerText = "Instructor: " + instructor;
+            document.getElementById('modalCourseDesc').innerText = desc;
+            document.getElementById('courseModal').classList.remove('hidden');
+        }
+
+        function closeCourseDrawer() {
+            document.getElementById('courseModal').classList.add('hidden');
+        }
+
+        function openQuizModal() {
+            document.getElementById('assessment').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function confirmEnrollment(e) {
+            e.preventDefault();
+            alert("Enrollment Successful! Welcome to Blue Horizon Academy.");
+            closeCourseDrawer();
+        }
+
+        // Mobile Menu Toggle
+        document.getElementById('mobileMenuBtn').addEventListener('click', () => {
+            document.getElementById('mobileMenu').classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>
