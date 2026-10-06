@@ -1,7 +1,7 @@
-export default function useCallback() {
-  return (
-    <div>
-      <h1>useCallback</h1>
-    </div>
-  );
+import React from 'react';
+import { MemoLab } from '../learning/labs/PerformanceLabs';
+
+// Compatibility example; the full guided lesson is linked by the curriculum.
+export default function UseCallbackExample() {
+  return <MemoLab onExplore={() => {}} />;
 }

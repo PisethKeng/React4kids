@@ -1,36 +1,62 @@
-import React from 'react'
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import UseButton from './samples/useEffect.jsx'
-import Home from './pages/Home/Home.jsx'
-import UseState from './samples/useState'
-import UseContext from './samples/useContext'
-import UseReducer from './samples/useReducer'
-import UseTransition from './samples/useTransition'
-import ReactRouting from './samples/reactRouting'
-import { useEffect } from "react";
+import React, { lazy, Suspense } from "react";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
+import { ProgressProvider } from "./learning/Progress";
+import Workspace from "./learning/Workspace";
+import Dashboard, { ProgressPage } from "./learning/Dashboard";
+import LessonPage, { NotFound } from "./learning/Lesson";
+import { legacyRoutes } from "./learning/curriculum";
+const StudyPlanner = lazy(() => import("./learning/StudyPlanner"));
+const PlannerList = lazy(() =>
+  import("./learning/StudyPlanner").then((module) => ({
+    default: module.PlannerList,
+  })),
+);
+const PlannerDetail = lazy(() =>
+  import("./learning/StudyPlanner").then((module) => ({
+    default: module.PlannerDetail,
+  })),
+);
 
-/**
- * The main app component, which uses React Router to switch between different routes.
- * 
- * The available routes are:
- * 
- * - `/`: The home page, which shows a list of all the available hooks.
- * - `/useEffect`: An example of how to use the `useEffect` hook.
- */
-
-export default function App() {
-  document.body.style.backgroundColor = "#F8FAFC";
+// Export the route tree so behavior tests can use MemoryRouter without nesting routers.
+export function AppRoutes() {
   return (
-    <BrowserRouter>
+    <Suspense
+      fallback={
+        <p className="page-container" role="status">
+          Loading workspace…
+        </p>
+      }
+    >
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/useEffect" element={<UseButton />} />
-        <Route path="/useState" element={<UseState />} />
-        <Route path="/useContext" element={<UseContext />} />
-        <Route path="/useReducer" element={<UseReducer />} />
-        <Route path="/useTransition" element={<UseTransition />} />
-        <Route path="/reactRouting" element={<ReactRouting />} />
+        <Route element={<Workspace />}>
+          <Route index element={<Dashboard />} />
+          <Route path="learn/:lessonId/*" element={<LessonPage />} />
+          <Route path="progress" element={<ProgressPage />} />
+          <Route path="project/study-planner" element={<StudyPlanner />}>
+            <Route index element={<Navigate to="tasks" replace />} />
+            <Route path="tasks" element={<PlannerList />} />
+            <Route path="tasks/:taskId" element={<PlannerDetail />} />
+            <Route path="*" element={<NotFound />} />
+          </Route>
+          {Object.entries(legacyRoutes).map(([path, id]) => (
+            <Route
+              key={path}
+              path={path}
+              element={<Navigate to={"/learn/" + id} replace />}
+            />
+          ))}
+          <Route path="*" element={<NotFound />} />
+        </Route>
       </Routes>
-    </BrowserRouter>
-  )
+    </Suspense>
+  );
+}
+export default function App() {
+  return (
+    <ProgressProvider>
+      <BrowserRouter>
+        <AppRoutes />
+      </BrowserRouter>
+    </ProgressProvider>
+  );
 }

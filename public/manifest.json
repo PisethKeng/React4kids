@@ -1,0 +1,9 @@
+{
+  "short_name": "React Path",
+  "name": "React Path · Learn by understanding",
+  "icons": [{ "src": "favicon.svg", "sizes": "any", "type": "image/svg+xml" }],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#0047ab",
+  "background_color": "#fff9f2"
+}

@@ -27,4 +27,11 @@ yarn-error.log*
 .local.env
 
 # Public folders
-/public 
+/public/*
+!/public/index.html
+!/public/manifest.json
+!/public/favicon.svg
+!/public/robots.txt
+# Browser verification artifacts
+/playwright-report/
+/test-results/

@@ -1,7 +1,7 @@
-export default function useContext() {
-  return (
-    <div>
-      <h1>useContext</h1>
-    </div>
-  );
+import React from 'react';
+import { ContextLab } from '../learning/labs/ArchitectureLabs';
+
+// Compatibility example; the full guided lesson is linked by the curriculum.
+export default function UseContextExample() {
+  return <ContextLab onExplore={() => {}} />;
 }
